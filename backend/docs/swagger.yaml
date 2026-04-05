@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Finance Dashboard API
+  version: 1.0.0
+  description: Finance Data Processing and Access Control Backend
+servers:
+  - url: http://localhost:5000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /api/auth/register:
+    post:
+      summary: Register account
+      tags: [Auth]
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, password]
+              properties:
+                name: 
+                  type: string
+                email: 
+                  type: string
+                password: 
+                  type: string
+                role: 
+                  type: string
+                  enum: [viewer, analyst, admin]
+      responses:
+        '201': 
+          description: Created
+  /api/auth/login:
+    post:
+      summary: Login
+      tags: [Auth]
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: 
+                  type: string
+                password: 
+                  type: string
+      responses:
+        '200': 
+          description: OK
+  /api/dashboard/summary:
+    get:
+      summary: Get totals and net balance
+      tags: [Dashboard Analytics]
+      responses:
+        '200':
+          description: OK
+  /api/dashboard/category-breakdown:
+    get:
+      summary: Get categorical statistics
+      tags: [Dashboard Analytics]
+      responses:
+        '200':
+          description: OK
+  /api/dashboard/trends:
+    get:
+      summary: Time-series aggregations
+      tags: [Dashboard Analytics]
+      responses:
+        '200':
+          description: OK

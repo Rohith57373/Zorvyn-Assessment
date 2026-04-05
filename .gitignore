@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+
+# Dist/Build
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Sensitive files
+db_pass.txt
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Project specific
+.codex/
+test-mongo.js

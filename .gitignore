@@ -26,3 +26,4 @@ Thumbs.db
 # Project specific
 .codex/
 test-mongo.js
+render.yaml
